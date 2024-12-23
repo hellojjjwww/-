@@ -1,0 +1,489 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+// Series1: Найти сумму десяти вещественных чисел
+void Series1() {
+    double num, sum = 0;
+    for (int i = 0; i < 10; ++i) {
+        cin >> num;
+        sum += num;
+    }
+    cout << "Sum: " << sum << endl;
+}
+
+// Series2: Найти произведение десяти вещественных чисел
+void Series2() {
+    double num, product = 1;
+    for (int i = 0; i < 10; ++i) {
+        cin >> num;
+        product *= num;
+    }
+    cout << "Product: " << product << endl;
+}
+
+// Series3: Найти среднее арифметическое десяти вещественных чисел
+void Series3() {
+    double num, sum = 0;
+    for (int i = 0; i < 10; ++i) {
+        cin >> num;
+        sum += num;
+    }
+    cout << "Average: " << sum / 10 << endl;
+}
+
+// Series4: Найти сумму и произведение N вещественных чисел
+void Series4() {
+    int N;
+    cin >> N;
+    double num, sum = 0, product = 1;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        sum += num;
+        product *= num;
+    }
+    cout << "Sum: " << sum << ", Product: " << product << endl;
+}
+
+// Series5: Вывести целые части чисел и их сумму
+void Series5() {
+    int N;
+    cin >> N;
+    double num, sum = 0;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        double integerPart = floor(num);
+        cout << integerPart << " ";
+        sum += integerPart;
+    }
+    cout << "\nSum of integer parts: " << sum << endl;
+}
+
+// Series6: Вывести дробные части чисел и их произведение
+void Series6() {
+    int N;
+    cin >> N;
+    double num, product = 1;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        double fractionalPart = num - floor(num);
+        cout << fractionalPart << " ";
+        product *= fractionalPart;
+    }
+    cout << "\nProduct of fractional parts: " << product << endl;
+}
+
+// Series7: Вывести округленные значения чисел и их сумму
+void Series7() {
+    int N;
+    cin >> N;
+    double num, sum = 0;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        int rounded = round(num);
+        cout << rounded << " ";
+        sum += rounded;
+    }
+    cout << "\nSum of rounded values: " << sum << endl;
+}
+
+// Series8: Вывести четные числа и их количество
+void Series8() {
+    int N, num, count = 0;
+    cin >> N;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num % 2 == 0) {
+            cout << num << " ";
+            ++count;
+        }
+    }
+    cout << "\nCount of even numbers: " << count << endl;
+}
+
+// Series9: Вывести номера нечетных чисел и их количество
+void Series9() {
+    int N, num, count = 0;
+    cin >> N;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num % 2 != 0) {
+            cout << i + 1 << " ";
+            ++count;
+        }
+    }
+    cout << "\nCount of odd numbers: " << count << endl;
+}
+
+// Series10: Проверить наличие положительных чисел
+void Series10() {
+    int N, num;
+    bool hasPositive = false;
+    cin >> N;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num > 0) hasPositive = true;
+    }
+    cout << (hasPositive ? "True" : "False") << endl;
+}
+
+// Series11: Проверить наличие чисел меньше K
+void Series11() {
+    int K, N, num;
+    bool hasSmaller = false;
+    cin >> K >> N;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num < K) hasSmaller = true;
+    }
+    cout << (hasSmaller ? "True" : "False") << endl;
+}
+
+// Series12: Количество чисел до 0
+void Series12() {
+    int num, count = 0;
+    while (cin >> num && num != 0) ++count;
+    cout << "Count: " << count << endl;
+}
+
+// Series13: Сумма положительных четных чисел до 0
+void Series13() {
+    int num, sum = 0;
+    while (cin >> num && num != 0) {
+        if (num > 0 && num % 2 == 0) sum += num;
+    }
+    cout << "Sum: " << sum << endl;
+}
+
+// Series14: Количество чисел меньше K до 0
+void Series14() {
+    int K, num, count = 0;
+    cin >> K;
+    while (cin >> num && num != 0) {
+        if (num < K) ++count;
+    }
+    cout << "Count: " << count << endl;
+}
+
+// Series15: Номер первого числа > K
+void Series15() {
+    int K, num, index = 0, position = 0;
+    cin >> K;
+    while (cin >> num && num != 0) {
+        ++index;
+        if (num > K && position == 0) position = index;
+    }
+    cout << position << endl;
+}
+
+// Series16: Номер последнего числа > K
+void Series16() {
+    int K, num, index = 0, position = 0;
+    cin >> K;
+    while (cin >> num && num != 0) {
+        ++index;
+        if (num > K) position = index;
+    }
+    cout << position << endl;
+}
+// Series17: Вставить число BB в упорядоченный набор NN чисел, сохраняя порядок
+void Series17() {
+    double B;
+    int N;
+    cin >> B >> N;
+    double num;
+    bool inserted = false;
+
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (!inserted && B < num) {
+            cout << B << " ";
+            inserted = true;
+        }
+        cout << num << " ";
+    }
+    if (!inserted) cout << B;
+    cout << endl;
+}
+
+//Series18: Вывести только уникальные элементы из упорядоченного набора NN чисел
+void Series18() {
+    int N;
+    cin >> N;
+    int prev = INT_MIN, num;
+
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num != prev) {
+            cout << num << " ";
+            prev = num;
+        }
+    }
+    cout << endl;
+}
+
+// Series19: Вывести элементы, меньшие своего левого соседа, и их количество
+void Series19() {
+    int N, count = 0;
+    cin >> N;
+
+    int prev, num;
+    cin >> prev; // Считываем первое число
+
+    for (int i = 1; i < N; ++i) {
+        cin >> num;
+        if (num < prev) {
+            cout << num << " ";
+            ++count;
+        }
+        prev = num;
+    }
+    cout << "\nCount: " << count << endl;
+}
+//Series20: Вывести элементы, меньшие своего правого соседа, и их количество
+void Series20() {
+    int N, count = 0;
+    cin >> N;
+
+    if (N <= 1) {
+        cout << "Error: N must be greater than 1." << endl;
+        return;
+    }
+
+    int current, next;
+    cin >> current; // Считываем первое число
+
+    for (int i = 1; i < N; ++i) {
+        cin >> next;
+        if (current < next) {
+            cout << current << " ";
+            ++count;
+        }
+        current = next; // Обновляем текущее число
+    }
+
+    cout << "\nCount: " << count << endl;
+}
+//Series21: Проверить, образует ли набор возрастающую последовательность
+void Series21() {
+    int N;
+    cin >> N;
+
+    double prev, num;
+    cin >> prev;
+    bool isIncreasing = true;
+
+    for (int i = 1; i < N; ++i) {
+        cin >> num;
+        if (num <= prev) {
+            isIncreasing = false;
+        }
+        prev = num;
+    }
+    cout << (isIncreasing ? "True" : "False") << endl;
+}
+//Series22: Проверить, образует ли набор убывающую последовательность, и вывести индекс нарушения
+void Series22() {
+    int N;
+    cin >> N;
+
+    double prev, num;
+    cin >> prev;
+    for (int i = 1; i < N; ++i) {
+        cin >> num;
+        if (num >= prev) {
+            cout << i + 1 << endl; // Индексация с 1
+            return;
+        }
+        prev = num;
+    }
+    cout << "0" << endl; // Набор убывает
+}
+// Series23: Проверить, является ли набор пилообразным
+void Series23() {
+    int N;
+    cin >> N;
+
+    if (N < 3) {
+        cout << "0" << endl; // Пилообразный набор невозможен
+        return;
+    }
+
+    double prev2, prev1, current;
+    cin >> prev2 >> prev1;
+
+    for (int i = 2; i < N; ++i) {
+        cin >> current;
+        if (!((prev1 > prev2 && prev1 > current) || (prev1 < prev2 && prev1 < current))) {
+            cout << i << endl; // Возвращаем индекс нарушения
+            return;
+        }
+        prev2 = prev1;
+        prev1 = current;
+    }
+    cout << "0" << endl; // Пилообразный набор
+}
+//Series24: Сумма чисел между последними двумя нулями
+void Series24() {
+    int N, num, lastZero = -1, secondLastZero = -1, sum = 0;
+    cin >> N;
+
+    vector<int> numbers(N);
+
+    // Считываем массив
+    for (int i = 0; i < N; ++i) {
+        cin >> numbers[i];
+        if (numbers[i] == 0) {
+            secondLastZero = lastZero;
+            lastZero = i;
+        }
+    }
+
+    // Проверка, идут ли последние два нуля подряд
+    if (secondLastZero + 1 == lastZero) {
+        cout << "0" << endl;
+        return;
+    }
+
+    // Подсчёт суммы между последними двумя нулями
+    for (int i = secondLastZero + 1; i < lastZero; ++i) {
+        sum += numbers[i];
+    }
+
+    cout << "Sum: " << sum << endl;
+}
+// Series25: Сумма чисел между первым и последним нулями
+void Series25() {
+    int N, num, firstZero = -1, lastZero = -1, sum = 0;
+    cin >> N;
+
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        if (num == 0) {
+            if (firstZero == -1) {
+                firstZero = i;
+            }
+            lastZero = i;
+        }
+    }
+
+    if (firstZero + 1 == lastZero) {
+        cout << "0" << endl;
+        return;
+    }
+
+    for (int i = firstZero + 1; i < lastZero; ++i) {
+        cin >> num;
+        sum += num;
+    }
+    cout << "Sum: " << sum << endl;
+}
+// Series26: KK-е степени чисел из набора
+void Series26() {
+    int K, N;
+    cin >> K >> N;
+
+    double num;
+    for (int i = 0; i < N; ++i) {
+        cin >> num;
+        cout << pow(num, K) << " ";
+    }
+    cout << endl;
+}
+// Series27: Вывести числа A1,A22,…,AN−1N−1,ANNA1​,A22​,…,AN−1N−1​,ANN​
+void Series27() {
+    int N;
+    cin >> N;
+
+    double num;
+    for (int i = 1; i <= N; ++i) {
+        cin >> num;
+        cout << pow(num, i) << " ";
+    }
+    cout << endl;
+}
+//Series28: Вывести числа A1N, A2N−1, …, AN−12, AN1A1N​, A2N−1​, …, AN−12​, AN1​
+void Series28() {
+    int N;
+    cin >> N;
+
+    vector<double> nums(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> nums[i];
+    }
+
+    for (int i = 0; i < N; ++i) {
+        cout << pow(nums[i], N - i) << " ";
+    }
+    cout << endl;
+}
+//Series29: Общая сумма элементов KK наборов по NN элементов
+void Series29() {
+    int K, N;
+    cin >> K >> N;
+
+    int sum = 0, num;
+    for (int i = 0; i < K * N; ++i) {
+        cin >> num;
+        sum += num;
+    }
+    cout << "Total sum: " << sum << endl;
+}
+// Series30: Сумма элементов для каждого набора
+void Series30() {
+    int K, N;
+    cin >> K >> N;
+
+    for (int i = 0; i < K; ++i) {
+        int sum = 0, num;
+        for (int j = 0; j < N; ++j) {
+            cin >> num;
+            sum += num;
+        }
+        cout << "Sum of set " << i + 1 << ": " << sum << endl;
+    }
+}
+//Series31: Количество наборов, содержащих число 2
+void Series31() {
+    int K, N;
+    cin >> K >> N;
+
+    int count = 0;
+    for (int i = 0; i < K; ++i) {
+        bool containsTwo = false;
+        int num;
+        for (int j = 0; j < N; ++j) {
+            cin >> num;
+            if (num == 2) {
+                containsTwo = true;
+            }
+        }
+        if (containsTwo) {
+            ++count;
+        }
+    }
+    cout << "Count of sets with 2: " << count << endl;
+}
+//Series32: Номер первого элемента, равного 2, в каждом наборе
+void Series32() {
+    int K, N;
+    cin >> K >> N;
+
+    for (int i = 0; i < K; ++i) {
+        int firstTwoIndex = 0, num;
+        for (int j = 0; j < N; ++j) {
+            cin >> num;
+            if (num == 2 && firstTwoIndex == 0) {
+                firstTwoIndex = j + 1; // Индексация с 1
+            }
+        }
+        cout << (firstTwoIndex == 0 ? 0 : firstTwoIndex) << " " << endl;;
+    }
+    cout << endl;
+}
+
+
+int main() {
+    Series32();
+}
