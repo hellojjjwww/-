@@ -1,0 +1,327 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+// Proc1: PowerA3
+void PowerA3(double A, double& B) {
+    B = pow(A, 3);
+}
+
+// Proc2: PowerA234
+void PowerA234(double A, double& B, double& C, double& D) {
+    B = pow(A, 2);
+    C = pow(A, 3);
+    D = pow(A, 4);
+}
+
+// Proc3: Mean
+void Mean(double X, double Y, double& AMean, double& GMean) {
+    AMean = (X + Y) / 2;
+    GMean = sqrt(X * Y);
+}
+
+// Proc4: TrianglePS
+void TrianglePS(double a, double& P, double& S) {
+    P = 3 * a;
+    S = (a * a * sqrt(3)) / 4;
+}
+
+// Proc5: RectPS
+void RectPS(double x1, double y1, double x2, double y2, double& P, double& S) {
+    double length = abs(x2 - x1);
+    double width = abs(y2 - y1);
+    P = 2 * (length + width);
+    S = length * width;
+}
+
+// Proc6: DigitCountSum
+void DigitCountSum(int K, int& C, int& S) {
+    C = 0;
+    S = 0;
+    while (K > 0) {
+        S += K % 10;
+        K /= 10;
+        C++;
+    }
+}
+
+// Proc7: InvertDigits
+void InvertDigits(int& K) {
+    int reversed = 0;
+    while (K > 0) {
+        reversed = reversed * 10 + K % 10;
+        K /= 10;
+    }
+    K = reversed;
+}
+
+// Proc8: AddRightDigit
+void AddRightDigit(int D, int& K) {
+    K = K * 10 + D;
+}
+
+// Proc9: AddLeftDigit
+void AddLeftDigit(int D, int& K) {
+    int multiplier = 1;
+    while (multiplier <= K) {
+        multiplier *= 10;
+    }
+    K = D * multiplier + K;
+}
+
+// Proc10: Swap
+void Swap(double& X, double& Y) {
+    double temp = X;
+    X = Y;
+    Y = temp;
+}
+
+// Proc11: Minmax
+void Minmax(double& X, double& Y) {
+    if (X > Y) swap(X, Y);
+}
+
+// Proc12: SortInc3
+void SortInc3(double& A, double& B, double& C) {
+    if (A > B) swap(A, B);
+    if (B > C) swap(B, C);
+    if (A > B) swap(A, B);
+}
+
+// Proc13: SortDec3
+void SortDec3(double& A, double& B, double& C) {
+    if (A < B) swap(A, B);
+    if (B < C) swap(B, C);
+    if (A < B) swap(A, B);
+}
+
+// Proc14: ShiftRight3
+void ShiftRight3(double& A, double& B, double& C) {
+    double temp = C;
+    C = B;
+    B = A;
+    A = temp;
+}
+
+// Proc15: ShiftLeft3
+void ShiftLeft3(double& A, double& B, double& C) {
+    double temp = A;
+    A = B;
+    B = C;
+    C = temp;
+}
+
+// Proc16: Sign
+int Sign(double X) {
+    if (X < 0) return -1;
+    if (X == 0) return 0;
+    return 1;
+}
+
+// Proc17: RootsCount
+int RootsCount(double A, double B, double C) {
+    double D = B * B - 4 * A * C;
+    if (D > 0) return 2;
+    if (D == 0) return 1;
+    return 0;
+}
+
+// Proc18: CircleS
+double CircleS(double R) {
+    return 3.14 * R * R;
+}
+
+// Proc19: RingS
+double RingS(double R1, double R2) {
+    return 3.14 * (R1 * R1 - R2 * R2);
+}
+
+// Proc20: TriangleP
+double TriangleP(double a, double h) {
+    double b = sqrt((a / 2) * (a / 2) + h * h);
+    return a + 2 * b;
+}
+
+// Proc21: SumRange
+int SumRange(int A, int B) {
+    if (A > B) return 0;
+    int sum = 0;
+    for (int i = A; i <= B; i++) sum += i;
+    return sum;
+}
+
+// Proc22: Calc
+double Calc(double A, double B, int Op) {
+    switch (Op) {
+    case 1: return A - B;
+    case 2: return A * B;
+    case 3: return A / B;
+    default: return A + B;
+    }
+}
+
+// Proc23: Quarter
+int Quarter(double x, double y) {
+    if (x > 0 && y > 0) return 1;
+    if (x < 0 && y > 0) return 2;
+    if (x < 0 && y < 0) return 3;
+    return 4;
+}
+
+// Proc24: Even
+bool Even(int K) {
+    return K % 2 == 0;
+}
+
+// Proc25: IsSquare
+bool IsSquare(int K) {
+    int root = sqrt(K);
+    return root * root == K;
+}
+
+// Proc26: IsPower5
+bool IsPower5(int K) {
+    while (K > 1 && K % 5 == 0) K /= 5;
+    return K == 1;
+}
+
+// Proc27: IsPowerN
+bool IsPowerN(int K, int N) {
+    while (K > 1 && K % N == 0) K /= N;
+    return K == 1;
+}
+
+// Proc28: IsPrime
+bool IsPrime(int N) {
+    if (N <= 1) return false;
+    for (int i = 2; i <= sqrt(N); i++) {
+        if (N % i == 0) return false;
+    }
+    return true;
+}
+
+// Proc29: DigitCount
+int DigitCount(int K) {
+    int count = 0;
+    while (K > 0) {
+        K /= 10;
+        count++;
+    }
+    return count;
+}
+
+// Proc31: Проверка числа на палиндром
+bool IsPalindrom(int k) {
+    int reversed = 0, original = k;
+    while (k > 0) {
+        reversed = reversed * 10 + k % 10;
+        k /= 10;
+    }
+    return original == reversed;
+}
+
+int CountPalindroms(const std::vector<int>& numbers) {
+    int count = 0;
+    for (int num : numbers) {
+        if (IsPalindrom(num)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Proc32: Перевод градусов в радианы
+double DegToRad(double degrees) {
+    const double PI = 3.14;
+    return degrees * PI / 180.0;
+}
+
+std::vector<double> ConvertDegreesToRadians(const std::vector<double>& degrees) {
+    std::vector<double> radians;
+    for (double deg : degrees) {
+        radians.push_back(DegToRad(deg));
+    }
+    return radians;
+}
+
+// Proc33: Перевод радиан в градусы
+double RadToDeg(double radians) {
+    const double PI = 3.14;
+    return radians * 180.0 / PI;
+}
+
+std::vector<double> ConvertRadiansToDegrees(const std::vector<double>& radians) {
+    std::vector<double> degrees;
+    for (double rad : radians) {
+        degrees.push_back(RadToDeg(rad));
+    }
+    return degrees;
+}
+
+// Proc34: Вычисление факториала
+double Fact(int n) {
+    double factorial = 1;
+    for (int i = 1; i <= n; ++i) {
+        factorial *= i;
+    }
+    return factorial;
+}
+
+std::vector<double> CalculateFactorials(const std::vector<int>& numbers) {
+    std::vector<double> factorials;
+    for (int num : numbers) {
+        factorials.push_back(Fact(num));
+    }
+    return factorials;
+}
+
+// Proc35: Вычисление двойного факториала
+double Fact2(int n) {
+    double factorial = 1;
+    for (int i = n; i > 0; i -= 2) {
+        factorial *= i;
+    }
+    return factorial;
+}
+
+std::vector<double> CalculateDoubleFactorials(const std::vector<int>& numbers) {
+    std::vector<double> doubleFactorials;
+    for (int num : numbers) {
+        doubleFactorials.push_back(Fact2(num));
+    }
+    return doubleFactorials;
+}
+
+// Proc36: Числа Фибоначчи
+int Fib(int n) {
+    if (n == 1 || n == 2) {
+        return 1;
+    }
+    int a = 1, b = 1, c = 0;
+    for (int i = 3; i <= n; ++i) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return c;
+}
+
+vector<int> CalculateFibonacci(const std::vector<int>& indices) {
+    std::vector<int> fibonacciNumbers;
+    for (int index : indices) {
+        fibonacciNumbers.push_back(Fib(index));
+    }
+    return fibonacciNumbers;
+}
+
+
+int main(){
+    /*
+    double b;
+    PowerA3(3.0,b);
+    cout << b;
+    */
+    cout << DigitCount(123);
+
+}
