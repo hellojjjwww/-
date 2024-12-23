@@ -1,0 +1,952 @@
+#include <iostream>
+using namespace std;
+
+/*
+//Task 4
+int main()
+{
+	int n;
+	cin >> n;
+	switch (n)
+	{
+	case 1: 31;
+	case 3: 31;
+	case 5: 31;
+	case 7: 31;
+	case 8: 31;
+	case 10: 31;
+	case 12: 31;
+		printf("This mounth have 31 day!");
+		break;
+	case 4: 30;
+	case 6: 30;
+	case 9: 30;
+	case 11: 30;
+		printf("This mounth have 30 day!");
+		break;
+	case 2: 29;
+		printf("This mounth have 29 day!");
+		break;
+	}
+}
+*/
+/*
+//Task 5
+int main()
+{
+	int n;
+	float a, b;
+	cin >> n >> a >> b;
+	switch (n) {
+	case 1:
+		cout << a + b;
+		break;
+	case 2:
+		cout << a - b;
+		break;
+	case 3:
+		cout << a * b;
+		break;
+	case 4:
+		cout << a / b;
+		break;
+	}
+}
+*/
+//Task 6
+/*
+int main()
+{
+	int n, b;
+	cin >> n >> b;
+	switch (n)
+	{
+	case 1:
+		cout << b / 10;
+		break;
+	case 2:
+		cout << b * 1000;
+		break;
+	case 3:
+		cout << b;
+		break;
+	case 4:
+		cout << b / 1000;
+		break;
+	case 5:
+		cout << b / 100;
+		break;
+	}
+}
+*/
+//Task 7
+/*
+int main()
+{
+	int n;
+	float b;
+	cin >> n >> b;
+	switch (n)
+	{
+	case 1:
+		cout << b;
+		break;
+	case 2:
+		cout << b * 1000000;
+		break;
+	case 3:
+		cout << b / 1000;
+		break;
+	case 4:
+		cout << b * 1000;
+		break;
+	case 5:
+		cout << b * 100;
+		break;
+	}
+}
+*/
+/*
+//Task 8
+int daysInMonth(int month) {
+	switch (month)
+	{
+	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+		return 31;
+	case 4: case 6: case 9: case 11:
+		return 30;
+	case 2:
+		return 28;
+	default:
+		return -1; // Неверный номер месяца
+	}
+}
+
+void previousDate(int& D, int& M) {
+	if (D > 1)
+	{
+		D -= 1; // Просто уменьшаем день
+	}
+	else {
+		// Переход на предыдущий месяц
+		if (M == 1)
+		{
+			M = 12;      // Если январь, то переходим на декабрь
+			D = 31;      // Последний день декабря
+		}
+		else
+		{
+			M -= 1;         // Переходим на предыдущий месяц
+			D = daysInMonth(M); // Последний день предыдущего месяца
+		}
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int D, M;
+	cout << "Введите день: ";
+	cin >> D;
+	cout << "Введите месяц: ";
+	cin >> M;
+
+	previousDate(D, M);
+
+	cout << "Предыдущая дата: " << D << "." << M << endl;
+
+	return 0;
+}
+*/
+/*
+//Task 9
+int daysInMonth(int month) {
+	switch (month)
+	{
+	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+		return 31;
+	case 4: case 6: case 9: case 11:
+		return 30;
+	case 2:
+		return 28;
+	default:
+		return -1; // Неверный номер месяца
+	}
+}
+
+void previousDate(int& D, int& M) {
+	if ((D + 1) < daysInMonth(M))
+	{
+		D += 1; 
+	}
+	else {
+		
+		if (M == 12)
+		{
+			M = 1;      
+			D = 1;      
+		}
+		else
+		{
+			         
+			D = 1;
+			M += 1;
+		}
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int D, M;
+	cout << "Введите день: ";
+	cin >> D;
+	cout << "Введите месяц: ";
+	cin >> M;
+
+	previousDate(D, M);
+
+	cout << "Предыдущая дата: " << D << "." << M << endl;
+
+	return 0;
+}
+*/
+/*
+// Task 10
+int main() {
+	system("chcp 1251");
+	int n;
+	char c;
+	cout << "Direction:";
+	cin >> c;
+	cout << "Operation:";
+	cin >> n;
+	
+	switch (c) {
+	case 'С':
+		switch (n) {
+		case 1:
+			c = 'З';
+			break;
+		case 0:
+			c = 'С';
+			break;
+		case -1:
+			c = 'В';
+			break;
+		}
+		break;
+	case 'В':
+		switch (n) {
+		case 1:
+			c = 'С';
+			break;
+		case 0:
+			c = 'В';
+			break;
+		case -1:
+			c = 'Ю';
+			break;
+		}
+	case 'Ю':
+		switch (n) {
+		case 1:
+			c = 'В';
+			break;
+		case 0:
+			c = 'Ю';
+			break;
+		case -1:
+			c = 'З';
+			break;
+		}
+		break;
+	case 'З':
+		switch (n) {
+		case 1:
+			c = 'Ю';
+			break;
+		case 0:
+			c = 'В';
+			break;
+		case -1:
+			c = 'С';
+			break;
+		}
+	}
+	cout << c;
+}
+*/
+//Task 11
+/*
+int main(void)
+{
+	system("chcp 1251");
+	int n1, n2;
+	char c;
+	printf("Direction:");
+	cin >> c;
+	printf("Command 1:");
+	cin >> n1;
+	printf("Command 2:");
+	cin >> n2;
+	
+	switch (c) {
+	case 'С':
+		switch (n1 + n2) {
+		case -1:
+		case 3:
+			c = 'В';
+			break;
+		case 1:
+			c = 'З';
+			break;
+		case -2:
+		case 2:
+			c = 'Ю';
+			break;
+		}
+		break;
+	case 'В':
+		switch (n1 + n2) {
+		case -1:
+		case 3:
+			c = 'Ю';
+			break;
+		case 1:
+			c = 'С';
+			break;
+		case -2:
+		case 2:
+			c = 'З';
+			break;
+		}
+		break;
+	case 'Ю':
+		switch (n1 + n2) {
+		case -1:
+		case 3:
+			c = 'З';
+			break;
+		case 1:
+			c = 'В';
+			break;
+		case -2:
+		case 2:
+			c = 'С';
+			break;
+		}
+		break;
+	case 'З':
+		switch (n1 + n2) {
+		case -1:
+		case 3:
+			c = 'С';
+			break;
+		case 1:
+			c = 'Ю';
+			break;
+		case -2:
+		case 2:
+			c = 'В';
+			break;
+		}
+	}
+
+	printf("%c\n", c);
+}
+*/
+//Task 12
+/*
+int main()
+{
+	int n;
+	float x, r, d, l, s;
+	printf("Number of element:");
+	cin >> n;
+	printf("Length:");
+	cin >> x;
+
+	switch (n)
+	{
+	case 1:
+		r = x;
+		d = 2 * r;
+		l = 2 * 3.14 * r;
+		s = 3.14 * r * r;
+		printf("%f %f %f\n", d, l, s);
+		break;
+	case 2:
+		r = x / 2;
+		d = x;
+		l = 2 * 3.14 * r;
+		s = 3.14 * r * r;
+		printf("%f %f %f\n", r, l, s);
+		break;
+	case 3:
+		r = x / 2 * 3.14;
+		d = 2 * r;
+		l = x;
+		s = 3.14 * r * r;
+		printf("%f %f %f\n", r, d, s);
+		break;
+	case 4:
+		r = sqrt(x / 3.14);
+		d = 2 * r;
+		l = 2 * 3.14 * r;
+		s = x;
+		printf("%f %f %f\n", r, d, l);
+		break;
+	}
+}
+*/
+//Task 13
+/*
+int main()
+{
+	int n;
+	float x, a, c, h, s;
+	printf("Number of element:");
+	cin >> n;
+	printf("Length:");
+	cin >> x;
+
+	switch (n) {
+	case 1:
+		a = x;
+		c = a * sqrt(2);
+		h = c / 2;
+		s = c * h / 2;
+		printf("%f %f %f\n", c, h, s);
+		break;
+	case 2:
+		c = x;
+		a = c / sqrt(2);
+		h = c / 2;
+		s = c * h / 2;
+		printf("%f %f %f\n", a, h, s);
+		break;
+	case 3:
+		h = x;
+		c = 2 * h;
+		a = c / sqrt(2);
+		s = c * h / 2;
+		printf("%f %f %f\n", a, c, s);
+		break;
+	case 4:
+		s = x;
+		h = sqrt(s);
+		c = 2 * h;
+		a = c / sqrt(2);
+		printf("%f %f %f\n", a, c, h);
+		break;
+	}
+}
+*/
+/*
+//Task 14
+int main()
+{
+	int n;
+	float x, a, r1, r2, s;
+	printf("Number of element:");
+	cin >> n;
+	printf("Length:");
+	cin >> x;
+
+	switch (n) {
+	case 1:
+		a = x;
+		r1 = a * sqrt(3) / 6;
+		r2 = 2 * r1;
+		s = a * a * sqrt(3) / 4;
+		cout << r1 << endl << r2 << endl << s;
+		break;
+	case 2:
+		r1 = x;
+		a = r1 * 6 / sqrt(3);
+		r2 = 2 * r1;
+		s = a * a * sqrt(3) / 4;
+		cout << a << endl << r2 << endl << s;
+		break;
+	case 3:
+		r2 = x;
+		r1 = r2 / 2;
+		a = r1 * 6 / sqrt(3);
+		s = a * a * sqrt(3) / 4;
+		cout << a << endl << r1 << endl << s;
+		break;
+	case 4:
+		s = x;
+		a = sqrt(s * 4 / sqrt(3));
+		r1 = a * sqrt(3) / 6;
+		r2 = 2 * r1;
+		cout << a << endl << r1 << endl << r2;
+		break;
+	}
+}
+*/
+/*
+//Task 15
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RUS");
+	int N, M;
+	cin >> N >> M;
+
+	string cardValue, cardSuit;
+	
+	// Определение достоинства карты с помощью switch-case
+	switch (N) {
+	case 6: cardValue = "шестерка"; break;
+	case 7: cardValue = "семерка"; break;
+	case 8: cardValue = "восьмерка"; break;
+	case 9: cardValue = "девятка"; break;
+	case 10: cardValue = "десятка"; break;
+	case 11: cardValue = "валет"; break;
+	case 12: cardValue = "дама"; break;
+	case 13: cardValue = "король"; break;
+	case 14: cardValue = "туз"; break;
+	}
+
+	// Определение масти карты с помощью switch-case
+	switch (M) {
+	case 1: cardSuit = "пики"; break;
+	case 2: cardSuit = "трефы"; break;
+	case 3: cardSuit = "бубны"; break;
+	case 4: cardSuit = "червы"; break;
+	}
+
+	// Вывод результата
+	cout << cardValue << " " << cardSuit << endl;
+
+	return 0;
+}
+*/
+//Task 16
+/*
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int y;
+	cout << "Возраст:";
+	cin >> y;
+
+	switch (y / 10) {
+	case 2:
+		cout << "двадцать ";
+		break;
+	case 3:
+		cout << "тридцать ";
+		break;
+	case 4:
+		cout << "сорок ";
+		break;
+	case 5:
+		cout << "пятдесят ";
+		break;
+	case 6:
+		cout << "шестьдесят ";
+		break;
+	}
+
+	switch (y % 10) {
+	case 1:
+		cout << "один ";
+		break;
+	case 2:
+		cout << "два ";
+		break;
+	case 3:
+		cout << "три ";
+		break;
+	case 4:
+		cout << "четыре ";
+		break;
+	case 5:
+		cout << "пять ";
+		break;
+	case 6:
+		cout << "шесть ";
+		break;
+	case 7:
+		cout << "семь ";
+		break;
+	case 8:
+		cout << "восемь ";
+		break;
+	case 9:
+		cout << "девять ";
+		break;
+	}
+
+	switch (y % 10) {
+	case 0:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+		cout << "лет. ";
+		break;
+	case 1:
+		cout << "год. ";
+		break;
+	case 2:
+	case 3:
+	case 4:
+		cout << "года. ";
+		break;
+	}
+
+	return 0;
+}
+*/
+//Task 17
+/*
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int n;
+	cout << "кол-во:";
+	cin >> n;
+
+	if (n / 10 == 1)
+		switch (n) {
+		case 10:
+			cout << "десять учебных заданий.";
+			break;
+		case 11:
+			cout << "одинадцать учебных заданий.";
+			break;
+		case 12:
+			cout << "двенадцать учебных заданий.";
+			break;
+		case 13:
+			cout << "тринадцать учебных заданий.";
+			break;
+		case 14:
+			cout << "четырнадцать учебных заданий.";
+			break;
+		case 15:
+			cout << "пятнадцать учебных заданий.";
+			break;
+		case 16:
+			cout << "шестнадцать учебных заданий.";
+			break;
+		case 17:
+			cout << "семнадцать учебных заданий.";
+			break;
+		case 18:
+			cout << "восемнадцать учебных заданий.";
+			break;
+		case 19:
+			cout << "девятнадцать учебных заданий.";
+			break;
+		}
+	else {
+		switch (n / 10) {
+		case 2:
+			cout << "двадцать ";
+			break;
+		case 3:
+			cout << "тридцать ";
+			break;
+		case 4:
+			cout << "сорок ";
+			break;
+		}
+
+		switch (n % 10) {
+		case 1:
+			cout << "одно ";
+			break;
+		case 2:
+			cout << "два ";
+			break;
+		case 3:
+			cout << "три ";
+			break;
+		case 4:
+			cout << "четыре ";
+			break;
+		case 5:
+			cout << "пять ";
+			break;
+		case 6:
+			cout << "шесть ";
+			break;
+		case 7:
+			cout << "семь ";
+			break;
+		case 8:
+			cout << "восемь ";
+			break;
+		case 9:
+			cout << "девять ";
+			break;
+		}
+
+		switch (n % 10) {
+		case 0:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			cout << "учебных заданий.";
+			break;
+		case 1:
+			cout << "учебное задание.";
+			break;
+		case 2:
+		case 3:
+		case 4:
+			cout << "учебных задания.";
+			break;
+		}
+	}
+	return 0;
+}
+*/
+//Task 18
+/*
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int n;
+	cout << "Число:";
+	cin >> n;
+
+	switch (n / 100) {
+	case 1:
+		cout << "сто ";
+		break;
+	case 2:
+		cout << "двести ";
+		break;
+	case 3:
+		cout << "триста ";
+		break;
+	case 4:
+		cout << "четыреста ";
+		break;
+	case 5:
+		cout << "пятьсот ";
+		break;
+	case 6:
+		cout << "шестьсот ";
+		break;
+	case 7:
+		cout << "семьсот ";
+		break;
+	case 8:
+		cout << "восемьсот  ";
+		break;
+	case 9:
+		cout << "девятьсот  ";
+		break;
+	}
+
+	if ((n % 100) / 10 == 1)
+		switch (n % 100) {
+		case 10:
+			cout << "десять";
+			break;
+		case 11:
+			cout << "одинадцать";
+			break;
+		case 12:
+			cout << "двенадцать";
+			break;
+		case 13:
+			cout << "тринадцать";
+			break;
+		case 14:
+			cout << "четырнадцать";
+			break;
+		case 15:
+			cout << "пятнадцать";
+			break;
+		case 16:
+			cout << "шестнадцать";
+			break;
+		case 17:
+			cout << "семнадцать";
+			break;
+		case 18:
+			cout << "восемнадцать";
+			break;
+		case 19:
+			cout << "девятнадцать";
+			break;
+		}
+	else {
+		switch ((n % 100) / 10) {
+		case 2:
+			cout << "двадцать ";
+			break;
+		case 3:
+			cout << "тридцать ";
+			break;
+		case 4:
+			cout << "сорок ";
+			break;
+		case 5:
+			cout << "пятьдесят ";
+			break;
+		case 6:
+			cout << "шестьдесят ";
+			break;
+		case 7:
+			cout << "семьдесят ";
+			break;
+		case 8:
+			cout << "восемьдесят ";
+			break;
+		case 9:
+			cout << "девяносто ";
+			break;
+		}
+
+		switch (n % 10) {
+		case 1:
+			cout << "один";
+			break;
+		case 2:
+			cout << "два";
+			break;
+		case 3:
+			cout << "три";
+			break;
+		case 4:
+			cout << "четыре";
+			break;
+		case 5:
+			cout << "пять";
+			break;
+		case 6:
+			cout << "шесть";
+			break;
+		case 7:
+			cout << "семь";
+			break;
+		case 8:
+			cout << "восемь";
+			break;
+		case 9:
+			cout << "девять";
+			break;
+		}
+	}
+	return 0;
+}
+*/
+
+/*
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int n;
+	cout << "Год:";
+	cin >> n;
+
+	cout << "год ";
+
+	switch ((n) % 10) {
+	case 0:
+	case 1:
+		cout << "бел";
+		break;
+	case 2:
+	case 3:
+		cout << "черн";
+		break;
+	case 4:
+	case 5:
+		cout << "зелён";
+		break;
+	case 6:
+	case 7:
+		cout << "красн";
+		break;
+	case 8:
+	case 9:
+		cout << "жёлт";
+		break;
+	}
+
+	switch ((n + 1) % 5) {
+	case 0:
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 9:
+	case 10:
+	case 11:
+		cout << "ой ";
+		break;
+	case 6:
+	case 7:
+	case 8:
+		cout << "ого ";
+		break;
+	}
+
+	switch ((n + 8) % 12) {
+	case 0:
+		cout << "крысы";
+		break;
+	case 1:
+		cout << "коровы";
+		break;
+	case 2:
+		cout << "тигра";
+		break;
+	case 3:
+		cout << "зайца";
+		break;
+	case 4:
+		cout << "дракона";
+		break;
+	case 5:
+		cout << "змеи";
+		break;
+	case 6:
+		cout << "лошади";
+		break;
+	case 7:
+		cout << "овцы";
+		break;
+	case 8:
+		cout << "обезьяны";
+		break;
+	case 9:
+		cout << "курицы";
+		break;
+	case 10:
+		cout << "собаки";
+		break;
+	case 11:
+		cout << "свиньи";
+		break;
+	}
+
+	return 0;
+}
+*/
+
+string switcht_to_color(int n){
+	switch (n){
+	case 0: case 1:
+		return "Бел";
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int n, temp;
+	string o;
+	cin >> n;
+	switcht_to_color(n & 10);
+	
+}
+	
