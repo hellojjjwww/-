@@ -1,0 +1,236 @@
+// While.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+//Task1
+/*
+int main()
+{
+	int a, b,temp;
+	cin >> a >> b;
+	if (a > b) {
+		temp = a;
+		while (temp >= 0) {
+			temp -= b;
+		}
+		cout << temp + b;
+	}
+	else
+		printf("Error, a < b!");
+}
+*/
+//Task2
+/*
+int main()
+{
+	int a, b, count = 0;
+	cin >> a >> b;
+	if (a > b) {
+		while (a >= b) {
+			a -= b;
+			count += 1;
+		}
+		cout << count;
+	}
+	else
+		printf("Error, a < b!");
+}
+*/
+//Task 5
+/*
+int main()
+{
+	int n,k = 0,count = 1;
+	cin >> n;
+	while (pow(2, k) < n) {
+		k++;
+	}
+	if (pow(2, k) == n) {
+		cout << k;
+	}
+	else
+	{
+		printf("The number is not power of 2 !");
+	}
+}
+*/
+//Task 6
+/*
+int main()
+{
+	int n;
+	float result = 1;
+	cin >> n;
+	while (n >= 2) {
+		result *= n;
+		n -= 2;
+	}
+	cout << result;
+}
+*/
+//Task7
+/*
+int main() {
+	int n, k = 1;
+	cin >> n;
+	while (pow(k, 2) <= n) {
+		k++;
+	}
+	cout << k;
+}
+*/
+//Task 8
+/*
+int main(){
+	int n, k = 1;
+	cin >> n;
+	while (pow(k, 2) <= n) {
+		k++;
+	}
+	cout << k-1;
+}
+*/
+//Task9
+/*
+int main()
+{
+	int n, k = 0;
+	cin >> n;
+	while (pow(3, k) <= n) {
+		k++;
+	}
+	cout << k;
+}
+*/
+//Task10
+/*
+int main()
+{
+	int n, k = 0;
+	cin >> n;
+	while ((pow(3, k)) < n) {
+		k++;
+	}
+	cout << k-1;
+}
+*/
+//Task 11
+/*
+int main()
+{
+	int n, k=0,sum = 0;
+	cin >> n;
+	while (sum <= n) {
+		k++;
+		sum += k;
+	}
+	cout << sum << endl << k;
+}
+*/
+//Task 12
+/*
+int main()
+{
+	int n, k = 0, sum = 0;
+	cin >> n;
+	while (sum <= n) {
+		k++;
+		sum += k;
+	}
+	cout << sum-k << endl << k-1;
+}
+*/
+//Task 13
+/*
+int main()
+{
+	int k = 1;
+	float sum = 1,a;
+	cin >> a;
+	while (sum <= a) {
+		k++;
+		sum += (1 / (float)k);
+		
+	}
+	cout << sum << endl << k;
+}
+*/
+//Task 14
+/*
+int main() {
+	float a,sum = 0;
+	cin >> a;
+	int k = 0;
+	while (sum <= a) {
+		++k;
+		sum += 1 / (float)k;
+	}
+	cout << "K:" << k - 1 << endl << sum - 1 / (float)k;
+}
+*/
+//Task 15
+/*
+int main(){
+	float start = 1000,p;
+	int k = 1;
+	cin >> p;
+	if ((0 < p) && (p < 25)) {
+		while (start <= 1100) {
+			++k;
+			start += start * p /100 ;
+
+		}
+		cout << start << endl << k;
+	}
+	else
+	{
+		printf("Error P");
+	}
+}
+*/
+//Task 16
+/*
+int main() {
+	float p;
+	cout << "P:";
+	cin >> p;
+	int k = 1;
+	float d = 10, s = 10;
+	while (s <= 200) {
+		++k;
+		d += d * p / 100;
+		s += d;
+	}
+	cout << "k:" << k << endl << "nS:" << s;
+	return 0;
+}
+*/
+//Task 21
+/*
+int main() {
+	int n,mark = 0;
+	cin >> n;
+	if (n > 0) {
+		while (n > 0) {
+			if ((n % 10) % 2 == 0) {
+				mark += 0;
+			}
+			else{
+				mark += 1;
+			}
+			n /= 10;
+		}
+		if (mark > 0) {
+			printf("Not all numbers in the number are even");
+		}
+		else
+		{
+			printf("All numbers in the number are even");
+		}
+	}
+
+}
+*/
