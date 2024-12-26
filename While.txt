@@ -208,6 +208,70 @@ int main() {
 	return 0;
 }
 */
+// Task 18
+/*
+int main() {
+    int N;
+    cout << "Введите число N (> 0): ";
+    cin >> N;
+
+    int sum = 0, count = 0;
+
+    while (N > 0) {
+        sum += N % 10; // Добавляем последнюю цифру к сумме
+        count++;       // Увеличиваем счетчик цифр
+        N /= 10;       // Удаляем последнюю цифру
+    }
+
+    cout << "Количество цифр: " << count << endl;
+    cout << "Сумма цифр: " << sum << endl;
+
+    return 0;
+}
+*/
+// Task19
+/*
+
+int main() {
+    int N;
+    cout << "Введите число N (> 0): ";
+    cin >> N;
+
+    int reversed = 0;
+
+    while (N > 0) {
+        reversed = reversed * 10 + (N % 10); // Добавляем последнюю цифру
+        N /= 10;                             // Удаляем последнюю цифру
+    }
+
+    cout << "Число, прочитанное справа налево: " << reversed << endl;
+
+    return 0;
+}
+*/
+//Task 20
+/*
+int main() {
+    int N;
+    cout << "Введите число N (> 0): ";
+    cin >> N;
+
+    bool hasTwo = false;
+
+    while (N > 0) {
+        if (N % 10 == 2) { // Проверяем, равна ли последняя цифра 2
+            hasTwo = true;
+            break;
+        }
+        N /= 10; // Удаляем последнюю цифру
+    }
+
+    cout << (hasTwo ? "True" : "False") << endl;
+
+    return 0;
+}
+*/
+//
 //Task 21
 /*
 int main() {
@@ -232,5 +296,73 @@ int main() {
 		}
 	}
 
+}
+*/
+//Task 22 
+/*
+int main() {
+    int N;
+    cout << "Введите число N (> 1): ";
+    cin >> N;
+
+    bool isPrime = true;
+
+    if (N < 2) {
+        isPrime = false;
+    } else {
+        for (int i = 2; i * i <= N; i++) { // Проверяем делимость на числа от 2 до √N
+            if (N % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    cout << (isPrime ? "True" : "False") << endl;
+
+    return 0;
+}
+*/
+//Task 23
+/*
+int main() {
+    int A, B;
+    cout << "Введите числа A и B: ";
+    cin >> A >> B;
+
+    while (B != 0) {
+        int temp = B;
+        B = A % B;
+        A = temp;
+    }
+
+    cout << "НОД: " << A << endl;
+
+    return 0;
+}
+*/
+//Task 24
+/*
+int main() {
+    int N;
+    cout << "Введите число N (> 1): ";
+    cin >> N;
+
+    int a = 1, b = 1; // Первые два числа Фибоначчи
+    bool isFibonacci = false;
+
+    while (a <= N) {
+        if (a == N) {
+            isFibonacci = true;
+            break;
+        }
+        int temp = b;
+        b = a + b; // Переход к следующему числу
+        a = temp;
+    }
+
+    cout << (isFibonacci ? "True" : "False") << endl;
+
+    return 0;
 }
 */
