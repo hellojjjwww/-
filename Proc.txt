@@ -314,6 +314,145 @@ vector<int> CalculateFibonacci(const std::vector<int>& indices) {
     }
     return fibonacciNumbers;
 }
+// Proc37: Power1
+double Power1(double A, double B) {
+    if (A <= 0) return 0;
+    return exp(B * log(A));
+}
+
+// Proc38: Power2
+double Power2(double A, int N) {
+    if (N == 0) return 1;
+    double result = 1;
+    if (N > 0) {
+        for (int i = 0; i < N; i++) {
+            result *= A;
+        }
+    }
+    else {
+        for (int i = 0; i < -N; i++) {
+            result /= A;
+        }
+    }
+    return result;
+}
+
+// Proc39: Power3
+double Power3(double A, double B) {
+    if (B == (int)B) // Если B целое
+        return Power2(A, (int)round(B));
+    else
+        return Power1(A, B);
+}
+
+// Proc40: Exp1
+double Exp1(double x, double epsilon) {
+    double term = 1;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= x / n;
+        result += term;
+        n++;
+    }
+    return result;
+}
+
+// Proc41: Sin1
+double Sin1(double x, double epsilon) {
+    double term = x;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= -x * x / ((2 * n) * (2 * n + 1));
+        result += term;
+        n++;
+    }
+    return result;
+}
+
+// Proc42: Cos1
+double Cos1(double x, double epsilon) {
+    double term = 1;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= -x * x / ((2 * n - 1) * (2 * n));
+        result += term;
+        n++;
+    }
+    return result;
+}
+
+// Proc43: Ln1
+double Ln1(double x, double epsilon) {
+    if (fabs(x) >= 1) return NAN; // |x| < 1 условие
+    double term = x;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= -x * n / (n + 1);
+        result += term;
+        n++;
+    }
+    return result;
+}
+
+// Proc44: Arctg1
+double Arctg1(double x, double epsilon) {
+    if (fabs(x) >= 1) return NAN; // |x| < 1 условие
+    double term = x;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= -x * x;
+        result += term / (2 * n + 1);
+        n++;
+    }
+    return result;
+}
+
+// Proc45: Power4
+double Power4(double x, double a, double epsilon) {
+    if (fabs(x) >= 1) return NAN; // |x| < 1 условие
+    double term = 1;
+    double result = term;
+    int n = 1;
+    while (fabs(term) > epsilon) {
+        term *= a * x / n;
+        a -= 1;
+        result += term;
+        n++;
+    }
+    return result;
+}
+
+// Proc46: NOD2
+int NOD2(int A, int B) {
+    while (B != 0) {
+        int temp = A % B;
+        A = B;
+        B = temp;
+    }
+    return A;
+}
+
+// Proc47: Frac1
+void Frac1(int a, int b, int& p, int& q) {
+    int gcd = NOD2(abs(a), abs(b));
+    p = a / gcd;
+    q = b / gcd;
+    if (q < 0) {
+        p = -p;
+        q = -q;
+    }
+}
+
+// Proc48: NOK2
+int NOK2(int A, int B) {
+    return A * (B / NOD2(A, B));
+}
+
 
 
 int main(){
@@ -322,6 +461,8 @@ int main(){
     PowerA3(3.0,b);
     cout << b;
     */
-    cout << DigitCount(123);
-
+    cout << Arctg1(0.5, 0.001)<<endl;
+    cout << Power4(0.5,2.0,0.01)<<endl;
+    cout << NOD2(60,48) << endl;
+   
 }
